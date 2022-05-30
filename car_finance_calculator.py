@@ -20,6 +20,7 @@ subprime = df.loc[7, :].values.tolist()
 deep_subprime = df.loc[9, :].values.tolist()
 
 
+
 def main():
     print("This is a Auto loan finance calculator. Please enter whole numbers only, no commas needed!")
     
@@ -80,10 +81,40 @@ def main():
         else:
             break
 
-    
-    # matching credit score to rate
+# matching credit score to rate
 
-    # if credit_score >= 780:
-       # rate = superprime[]
+    if credit_score >= 781 and condition == 1:
+        rate = superprime[2]
+    elif credit_score >= 661 and condition == 1:
+        rate = prime[2]
+    elif credit_score >= 601 and condition == 1:
+        rate = nonprime[2]
+    elif credit_score >= 501 and condition == 1:
+        rate = subprime[2]
+    elif credit_score <= 500 and condition == 1:
+        rate = deep_subprime[2]
+    elif credit_score >= 781 and condition == 2:
+        rate = superprime[3]
+    elif credit_score >= 661 and condition == 2:
+        rate = prime[3]
+    elif credit_score >= 601 and condition == 2:
+        rate = nonprime[3]
+    elif credit_score >= 501 and condition == 2:
+        rate = subprime[3]
+    elif credit_score <= 500 and condition == 2:
+        rate = deep_subprime[3]
+
+# figuring our principal and interest rate by year  
+    principal = (auto_price - (down_payment + trade_in))
+    
+    int3 = (principal * rate * 3)
+    int4 = (principal * rate * 4)
+    int5 = (principal * rate * 5)
+
+
+    print("The monthly payment for 36 months is: ",int((principal + int3) / 36 ))
+    print("The monthly payment for 48 months is: ",int((principal + int4) / 48 ))
+    print("The monthly payment for 60 months is: ",int((principal + int5) / 60 ))
+
 
 main()
