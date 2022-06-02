@@ -104,13 +104,15 @@ def main():
     elif credit_score <= 500 and condition == 2:
         rate = deep_subprime[3]
 
-# figuring our principal and interest rate by year  
+# figuring our principal and interest rate by year
+  
     principal = (auto_price - (down_payment + trade_in))
     
     int3 = (principal * rate * 3)
     int4 = (principal * rate * 4)
     int5 = (principal * rate * 5)
-
+    int6 = (principal * rate * 6)
+    int7 = (principal * rate * 7)
 
     print("The monthly payment for 36 months is: ",int((principal + int3) / 36 ))
     print("The monthly payment for 48 months is: ",int((principal + int4) / 48 ))
