@@ -1,7 +1,17 @@
 # Importing file data.csv
 # Make sure to update the path as needed
 
+from calendar import month
+
 import pandas as pd
+
+import numpy as np
+
+#import tkinter as tk
+
+import matplotlib.pyplot as plt
+
+import seaborn as sns
 
 df = pd.read_csv('D:\\code\data.csv')
 
@@ -114,9 +124,31 @@ def main():
     int6 = (principal * rate * 6)
     int7 = (principal * rate * 7)
 
-    print("The monthly payment for 36 months is: ",int((principal + int3) / 36 ))
-    print("The monthly payment for 48 months is: ",int((principal + int4) / 48 ))
-    print("The monthly payment for 60 months is: ",int((principal + int5) / 60 ))
+# getting monthly payments calculations
+
+    three_year = int((principal + int3) / 36)
+    four_year = int((principal + int4) / 48)
+    five_year = int((principal + int5) / 60)
+    six_year = int((principal + int6) / 72)
+    seven_year = int((principal + int7) / 84)
+
+
+# Making plot data
+
+    plot_data = {"Months": ["36", "48", "60", "72", "84"],
+                 "Amounts": [three_year, four_year, five_year, six_year, seven_year]}
+    
+    splot=sns.barplot(x="Months",y="Amounts",data=plot_data)
+    for bar in splot.patches:
+        splot.annotate(format(bar.get_height(), '.2f'),
+                (bar.get_x() + bar.get_width() / 2,
+                 bar.get_height()), ha='center', va='center',
+                 size=15, xytext=(0, 8),
+                 textcoords='offset points')
+
+
+    plt.show()
+
 
 
 main()
