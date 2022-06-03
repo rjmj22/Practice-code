@@ -135,18 +135,34 @@ def main():
 
 # Making plot data
 
-    plot_data = {"Months": ["36", "48", "60", "72", "84"],
+    plt.figure(1)
+    plot_data1 = {"Months": ["36", "48", "60", "72", "84"],
                  "Amounts": [three_year, four_year, five_year, six_year, seven_year]}
     
-    splot=sns.barplot(x="Months",y="Amounts",data=plot_data)
-    for bar in splot.patches:
-        splot.annotate(format(bar.get_height(), '.2f'),
+    splot1=sns.barplot(x="Months",y="Amounts",data=plot_data1)
+    for bar in splot1.patches:
+        splot1.annotate(format(bar.get_height(), '.2f'),
                 (bar.get_x() + bar.get_width() / 2,
                  bar.get_height()), ha='center', va='center',
                  size=15, xytext=(0, 8),
                  textcoords='offset points')
+    plt.xlabel("Months", size=15)
+    plt.ylabel("Monthly payment", size=15)
 
-
+    plt.figure(2)
+    plot_data2 = {"Months": ["36", "48", "60", "72", "84"],
+                 "Amounts": [int3, int4, int5, int6, int7]}
+    
+    splot2=sns.barplot(x="Months",y="Amounts",data=plot_data2)
+    for bar in splot2.patches:
+        splot2.annotate(format(bar.get_height(), '.2f'),
+                (bar.get_x() + bar.get_width() / 2,
+                 bar.get_height()), ha='center', va='center',
+                 size=15, xytext=(0, 8),
+                 textcoords='offset points')
+    plt.xlabel("Months", size=15)
+    plt.ylabel("Interest paid", size=15)
+    
     plt.show()
 
 
