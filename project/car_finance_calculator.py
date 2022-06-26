@@ -7,8 +7,6 @@ import pandas as pd
 
 import numpy as np
 
-#import tkinter as tk
-
 import matplotlib.pyplot as plt
 
 import seaborn as sns
